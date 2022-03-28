@@ -1,0 +1,92 @@
+api_endpoint: central-stackrox.apps.home.ocplab.com
+api_token: "eyJhbGciOiJSUzI1NiIsImtpZCI6Imp3dGswIiwidHlwIjoiSldUIn0.eyJhdWQiOlsiaHR0cHM6Ly9zdGFja3JveC5pby9qd3Qtc291cmNlcyNhcGktdG9rZW5zIl0sImV4cCI6MTY3OTY4NjI0MCwiaWF0IjoxNjQ4MTUwMjQwLCJpc3MiOiJodHRwczovL3N0YWNrcm94LmlvL2p3dCIsImp0aSI6ImFhZjUwOTQyLTZlZjYtNDNjYy1iYmQ2LTczZDhiMThhOWYyMCIsIm5hbWUiOiJhbnNpYmxlIiwicm9sZXMiOlsiQWRtaW4iXX0.WMEnbQl8UZXJTGtBjbdeqIHw8a6tJMuVxGxXcPwzqkOP9OM2qRRWEdQs4O6c7SJlFLMt1PPHjtYvublkXb1D8LBp1Jk6dp7wFEJZwNoFvnhIXZjSjOLMDYNW36lwpRItZ9Gd_49vzUCLcTmzPfmUut9KE6cl9ixbyeQUhCXaNlospute5xrHoqNKb2_rKS1AI3YO9IgcsuPniWQed0-JRfr-rEGCPM7Fg08tiBmnztKyP4l16l5phRByAoO7erJfLmq36auXW2N67nlvRiMU_SOdZQNWmOTPTPsp9G3epHE-cXyonEbLGN9yEAuwmg6OSw-yH4C8G0X0vH2-g2x7rqnZiq0nmSNknOmlVXvL179X6qefadjTBZi4SxwHmltgAlOSWIT9D4JykezLdPvlfjAV1poyAz5pM8WtdFpsulQcGItgt0EnHIb0TkpSmeDRfe8N2RdGNEmIw0SLkhaUQLSOJE2wR6tRbCfjz7YuIa-y7FFMXYk7xLuDFdN-0A752qpX0Yoq56XM2i6Q_xEq64ctw0zKTwQKc6cVloTIvPiY2c1XFanGvFsI1ysMKyI4CmLmb8JOd8xVxXOAeiHpKWJoy0rFmH835IgUr-opr--YIg1WkA2neLiE1BEJAu7iZJSnmQrisYwIpNl9VW1Kr0pENy3AAy4LuO4GdEeaiQc"
+ui_endpoint: central-stackrox.apps.home.ocplab.com
+
+auth_provider: {name: OpenShift, type: openshift}
+default_auth_provider_role: None
+
+permission_sets:
+  - name: Namespace Adminstrator
+    description: A user that is an administrator of one or namespaces across various clusters
+    resourceToAccess:
+      APIToken: READ_WRITE_ACCESS
+      Alert: READ_ACCESS
+      AllComments: NO_ACCESS
+      AuthPlugin: NO_ACCESS
+      AuthProvider: NO_ACCESS
+      BackupPlugins: NO_ACCESS
+      CVE: NO_ACCESS
+      Cluster: READ_ACCESS
+      Compliance: READ_ACCESS
+      ComplianceRunSchedule: READ_ACCESS
+      ComplianceRuns: READ_ACCESS
+      Config: NO_ACCESS
+      DebugLogs: NO_ACCESS
+      Deployment: READ_ACCESS
+      Detection: READ_ACCESS
+      Group: NO_ACCESS
+      Image: READ_ACCESS
+      ImageComponent: NO_ACCESS
+      ImageIntegration: NO_ACCESS
+      Indicator: READ_ACCESS
+      K8sRole: READ_ACCESS
+      K8sRoleBinding: READ_ACCESS
+      K8sSubject: READ_ACCESS
+      Licenses: NO_ACCESS
+      Namespace: READ_ACCESS
+      NetworkBaseline: READ_ACCESS
+      NetworkGraph: READ_ACCESS
+      NetworkGraphConfig: READ_ACCESS
+      NetworkPolicy: READ_ACCESS
+      Node: NO_ACCESS
+      Notifier: NO_ACCESS
+      Policy: READ_ACCESS
+      ProbeUpload: NO_ACCESS
+      ProcessWhitelist: NO_ACCESS
+      Risk: READ_ACCESS
+      Role: NO_ACCESS
+      ScannerBundle: NO_ACCESS
+      ScannerDefinitions: NO_ACCESS
+      Secret: READ_ACCESS
+      SensorUpgradeConfig: NO_ACCESS
+      ServiceAccount: READ_ACCESS
+      ServiceIdentity: NO_ACCESS
+      User: NO_ACCESS
+      WatchedImage: READ_WRITE_ACCESS
+
+access_scopes:
+  - name: product-catalog-admins
+    description: Access rights for users that can manage Product Catalog namespaces
+    rules:
+      includedClusters: []
+      includedNamespaces:
+      - clusterName: local-cluster
+        namespaceName: product-catalog-dev
+      - clusterName: local-cluster
+        namespaceName: product-catalog-test
+      - clusterName: local-cluster
+        namespaceName: product-catalog-monitor
+      - clusterName: local-cluster
+        namespaceName: product-catalog-prod
+      - clusterName: local-cluster
+        namespaceName: product-catalog-cicd
+      - clusterName: local-cluster
+        namespaceName: product-catalog-gitops
+      clusterLabelSelectors: []
+      namespaceLabelSelectors: []
+
+roles:
+  - name: Product Catalog Admins
+    description: Administrators of product catalog namespaces
+    permission_set: Namespace Adminstrator
+    access_scope: product-catalog-admins
+    global_access: NO_ACCESS
+
+# Associate roles with users/groups in Provider
+role_mappings:
+  - key: name
+    value: admin
+    role_name: Admin
+  - key: groups
+    value: product-catalog-admins
+    role_name: Product Catalog Admins
