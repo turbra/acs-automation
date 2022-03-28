@@ -4,6 +4,16 @@
   tasks:
     - include_vars: vars.yaml
 
+    - name: Use API Token if defined
+      set_fact:
+        authorization: Bearer {{ api_token }}"
+      when: api_token is defined
+
+    - name: Use username/password if defined
+      set_fact:
+        authorization: "Basic {{ (username + ':' + password) | b64encode }}"
+      when: username is defined and password is defined
+
     # Create Openshift Authenticator, will either succeed (200) or fail (400) because it already exists
     - name: Insert OpenShift Authentication Provider
       uri:
@@ -11,7 +21,7 @@
         method: POST
         validate_certs: no
         headers:
-          authorization: "Bearer {{ api_token }}"
+          authorization: "{{ authorization }}"
         body_format: json
         body:
           name: "{{ auth_provider.name }}"
@@ -28,7 +38,7 @@
         method: GET
         validate_certs: no
         headers:
-          authorization: "Bearer {{ api_token }}"
+          authorization: "{{ authorization }}"
         body_format: json
         status_code: 200
       register: authprovider_result
@@ -40,7 +50,7 @@
         method: POST
         validate_certs: no
         headers:
-          authorization: "Bearer {{ api_token }}"
+          authorization: "{{ authorization }}"
         body_format: json
         body:
           previous_groups: []
@@ -51,7 +61,7 @@
             - props:
                 authProviderId: "{{ authprovider_result.json.authProviders[0].id }}"
               roleName: "{{ default_auth_provider_role }}"
-        status_code: 200
+        status_code: [200,500]
 
     # Create the permission sets
     - name: Create Permission Sets
@@ -60,7 +70,7 @@
         method: POST
         validate_certs: no
         headers:
-          authorization: "Bearer {{ api_token }}"
+          authorization: "{{ authorization }}"
         body_format: json
         body: "{{ item }}"
         status_code: [200, 409]
@@ -73,7 +83,7 @@
         method: POST
         validate_certs: no
         headers:
-          authorization: "Bearer {{ api_token }}"
+          authorization: "{{ authorization }}"
         body_format: json
         body: "{{ item }}"
         status_code: [200, 409]
@@ -86,7 +96,7 @@
         method: GET
         validate_certs: no
         headers:
-          authorization: "Bearer {{ api_token }}"
+          authorization: "{{ authorization }}"
         body_format: json
         status_code: 200
       register: permission_set_result
@@ -98,7 +108,7 @@
         method: GET
         validate_certs: no
         headers:
-          authorization: "Bearer {{ api_token }}"
+          authorization: "{{ authorization }}"
         body_format: json
         status_code: 200
       register: access_scope_result
@@ -115,7 +125,7 @@
         method: POST
         validate_certs: no
         headers:
-            authorization: "Bearer {{ api_token }}"
+            authorization: "{{ authorization }}"
         body_format: json
         body:
             previous_groups: []
