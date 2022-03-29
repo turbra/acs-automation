@@ -25,7 +25,7 @@
 # Create role that links access set and permission set
 - name: Create role
   uri:
-    url: "https://{{ api_endpoint }}/v1/authProviders"
+    url: "https://{{ api_endpoint }}/v1/roles/{{ item.name | urlencode }}"
     method: POST
     validate_certs: no
     headers:
@@ -37,4 +37,4 @@
       permissionSetId: "{{ permission_set[0].id}}"
       accessScopeId: "{{ access_scope[0].id }}"
       globalAccess: "{{ item.global_access }}"
-    status_code: [200, 400]
+    status_code: [200, 409]
