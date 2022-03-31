@@ -1,5 +1,6 @@
 api_endpoint: central-stackrox.apps.home.ocplab.com
-ui_endpoint: central-stackrox.apps.home.ocplab.com
+# change if the UI is hosted on a different endpoint:
+ui_endpoint: "{{ api_endpoint }}"
 
 auth_provider: {name: OpenShift, type: openshift}
 default_auth_provider_role: None
