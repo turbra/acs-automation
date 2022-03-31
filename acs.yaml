@@ -6,7 +6,7 @@
 
     - name: Use API Token if defined
       set_fact:
-        authorization: Bearer {{ api_token }}"
+        authorization: "Bearer {{ api_token }}"
       when: api_token is defined
 
     - name: Use username/password if defined
