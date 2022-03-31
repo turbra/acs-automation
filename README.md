@@ -8,11 +8,11 @@ The playbook uses the uri module to drive the ACS API, the configuration that is
 
 You can invoke the playbook by passing either username/password or API token to the playbook. To use it with the default Central username/password:
 
-```ansible-playbook acs.yaml -e username=admin -e password=XXXXXX -e api_endpoint=https://central-stackrox.apps.home.ocplab.com/```
+```ansible-playbook acs.yaml -e username=admin -e password=XXXXXX -e api_endpoint=central-stackrox.apps.home.ocplab.com```
 
 To invoke it with an API token created in ACS:
 
-```ansible-playbook acs.yaml -e api_token=XXXXXXX -e api_endpoint=https://central-stackrox.apps.home.ocplab.com/```
+```ansible-playbook acs.yaml -e api_token=XXXXXXX -e api_endpoint=central-stackrox.apps.home.ocplab.com```
 
 ### Integrating with GitOps
 
