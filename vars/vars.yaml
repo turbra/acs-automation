@@ -15,7 +15,7 @@ permission_sets:
       AuthPlugin: NO_ACCESS
       AuthProvider: NO_ACCESS
       BackupPlugins: NO_ACCESS
-      CVE: NO_ACCESS
+      CVE: READ_ACCESS
       Cluster: READ_ACCESS
       Compliance: READ_ACCESS
       ComplianceRunSchedule: READ_ACCESS
