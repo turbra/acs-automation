@@ -61,7 +61,7 @@
             - props:
                 authProviderId: "{{ authprovider_result.json.authProviders[0].id }}"
               roleName: "{{ default_auth_provider_role }}"
-        status_code: [200,500]
+        status_code: [200,409,500]
 
     # Create the permission sets
     - name: Create Permission Sets
