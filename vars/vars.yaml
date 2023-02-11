@@ -9,11 +9,9 @@ permission_sets:
   - name: Namespace Adminstrator
     description: A user that is an administrator of one or namespaces across various clusters
     resourceToAccess:
-      APIToken: READ_WRITE_ACCESS
+      Access: NO_ACCESS
       Alert: READ_ACCESS
       AllComments: NO_ACCESS
-      AuthProvider: NO_ACCESS
-      BackupPlugins: NO_ACCESS
       CVE: READ_ACCESS
       Cluster: READ_ACCESS
       Compliance: READ_ACCESS
@@ -24,17 +22,13 @@ permission_sets:
       Deployment: READ_ACCESS
       DeploymentExtension: READ_ACCESS
       Detection: READ_ACCESS
-      Group: NO_ACCESS
       Image: READ_ACCESS
-      ImageComponent: READ_ACCESS
+      Integration: NO_ACCESS
       ImageIntegration: NO_ACCESS
-      Indicator: READ_ACCESS
       K8sRole: READ_ACCESS
       K8sRoleBinding: READ_ACCESS
       K8sSubject: READ_ACCESS
-      Licenses: NO_ACCESS
       Namespace: READ_ACCESS
-      NetworkBaseline: READ_ACCESS
       NetworkGraph: READ_ACCESS
       NetworkGraphConfig: READ_ACCESS
       NetworkPolicy: READ_ACCESS
@@ -42,16 +36,12 @@ permission_sets:
       Notifier: NO_ACCESS
       Policy: READ_ACCESS
       ProbeUpload: NO_ACCESS
-      ProcessWhitelist: READ_ACCESS
-      Risk: READ_ACCESS
-      Role: NO_ACCESS
       ScannerBundle: NO_ACCESS
       ScannerDefinitions: NO_ACCESS
       Secret: READ_ACCESS
       SensorUpgradeConfig: NO_ACCESS
       ServiceAccount: READ_ACCESS
       ServiceIdentity: NO_ACCESS
-      User: NO_ACCESS
       WatchedImage: READ_WRITE_ACCESS
       VulnerabilityManagementApprovals: READ_ACCESS
       VulnerabilityManagementRequests: READ_WRITE_ACCESS
