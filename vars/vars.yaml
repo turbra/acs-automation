@@ -63,12 +63,32 @@ access_scopes:
         namespaceName: product-catalog-gitops
       clusterLabelSelectors: []
       namespaceLabelSelectors: []
+  - name: coolstore-admins
+    description: Access rights for users that can manage Product Catalog namespaces
+    rules:
+      includedClusters: []
+      includedNamespaces:
+      - clusterName: local-cluster
+        namespaceName: coolstore-dev
+      - clusterName: local-cluster
+        namespaceName: coolstore-stage
+      - clusterName: local-cluster
+        namespaceName: coolstore-prod
+      - clusterName: local-cluster
+        namespaceName: coolstore-cicd
+      clusterLabelSelectors: []
+      namespaceLabelSelectors: []
 
 roles:
   - name: Product Catalog Admins
     description: Administrators of product catalog namespaces
     permission_set: Namespace Adminstrator
     access_scope: product-catalog-admins
+    global_access: NO_ACCESS
+  - name: Coolstore Admins
+    description: Administrators of product coolstore namespaces
+    permission_set: Namespace Adminstrator
+    access_scope: coolstore-admins
     global_access: NO_ACCESS
 
 # Associate roles with users/groups in Provider
@@ -82,3 +102,6 @@ role_mappings:
   - key: groups
     value: product-catalog-admins
     role_name: Product Catalog Admins
+  - key: groups
+    value: coolstore-admins
+    role_name: Coolstore Admins
