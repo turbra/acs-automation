@@ -15,7 +15,6 @@ permission_sets:
       CVE: READ_ACCESS
       Cluster: READ_ACCESS
       Compliance: READ_ACCESS
-      ComplianceRunSchedule: READ_ACCESS
       ComplianceRuns: READ_ACCESS
       Config: NO_ACCESS
       DebugLogs: NO_ACCESS
@@ -24,7 +23,6 @@ permission_sets:
       Detection: READ_ACCESS
       Image: READ_ACCESS
       Integration: NO_ACCESS
-      ImageIntegration: NO_ACCESS
       K8sRole: READ_ACCESS
       K8sRoleBinding: READ_ACCESS
       K8sSubject: READ_ACCESS
@@ -33,7 +31,6 @@ permission_sets:
       NetworkGraphConfig: READ_ACCESS
       NetworkPolicy: READ_ACCESS
       Node: READ_ACCESS
-      Notifier: NO_ACCESS
       Policy: READ_ACCESS
       ProbeUpload: NO_ACCESS
       ScannerBundle: NO_ACCESS
