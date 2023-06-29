@@ -73,7 +73,7 @@
           authorization: "{{ authorization }}"
         body_format: json
         body: "{{ item }}"
-        status_code: [200, 409]
+        status_code: [200, 409, 500]
       with_items: "{{ permission_sets }}"
 
     # Create the access scopes
@@ -86,7 +86,7 @@
           authorization: "{{ authorization }}"
         body_format: json
         body: "{{ item }}"
-        status_code: [200, 409]
+        status_code: [200, 409, 500]
       with_items: "{{ access_scopes }}"
 
     # Need to get the permission sets to get IDs for Roles
