@@ -27,7 +27,6 @@ permission_sets:
       NetworkGraph: READ_ACCESS
       NetworkPolicy: READ_ACCESS
       Node: READ_ACCESS
-      Policy: READ_ACCESS
       Secret: READ_ACCESS
       ServiceAccount: READ_ACCESS
       WatchedImage: READ_WRITE_ACCESS
