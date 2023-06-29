@@ -140,5 +140,5 @@
                 authProviderId: "{{ authprovider_result.json.authProviders[0].id }}"
                 key: "{{ item.key }}"
                 value: "{{ item.value }}"
-        status_code: [200,500]
+        status_code: [200,409,500]
       with_items: "{{ role_mappings }}"
