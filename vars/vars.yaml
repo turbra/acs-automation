@@ -39,17 +39,17 @@ access_scopes:
     rules:
       includedClusters: []
       includedNamespaces:
-      - clusterName: local-cluster
+      - clusterName: home
         namespaceName: product-catalog-dev
-      - clusterName: local-cluster
+      - clusterName: home
         namespaceName: product-catalog-test
-      - clusterName: local-cluster
+      - clusterName: home
         namespaceName: product-catalog-monitor
-      - clusterName: local-cluster
+      - clusterName: home
         namespaceName: product-catalog-prod
-      - clusterName: local-cluster
+      - clusterName: home
         namespaceName: product-catalog-cicd
-      - clusterName: local-cluster
+      - clusterName: home
         namespaceName: product-catalog-gitops
       clusterLabelSelectors: []
       namespaceLabelSelectors: []
@@ -58,13 +58,13 @@ access_scopes:
     rules:
       includedClusters: []
       includedNamespaces:
-      - clusterName: local-cluster
+      - clusterName: home
         namespaceName: coolstore-dev
-      - clusterName: local-cluster
+      - clusterName: home
         namespaceName: coolstore-stage
-      - clusterName: local-cluster
+      - clusterName: home
         namespaceName: coolstore-prod
-      - clusterName: local-cluster
+      - clusterName: home
         namespaceName: coolstore-cicd
       clusterLabelSelectors: []
       namespaceLabelSelectors: []
