@@ -70,7 +70,7 @@ access_scopes:
       namespaceLabelSelectors: []
 
 roles:
-  - name: Turbra - Product Catalog Admins
+  - name: Turbra Product Catalog Admins
     description: Administrators of product catalog namespaces
     permission_set: Namespace Adminstrator
     access_scope: product-catalog-admins
