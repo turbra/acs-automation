@@ -73,7 +73,7 @@ roles:
   - name: Product Catalog Admins
     description: Administrators of product catalog namespaces
     permission_set: Namespace Adminstrator
-    access_scope: product-catalog-admins
+    access_scope: catalog-admins
     global_access: NO_ACCESS
   - name: Coolstore Admins
     description: Administrators of product coolstore namespaces
