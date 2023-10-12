@@ -20,6 +20,9 @@
     query: "[? name==`{{ item.access_scope }}`]"
 
 - debug:
+    var: access_scope_result.json.accessScopes
+
+- debug:
     msg: "{{ access_scope[0].id }}"
 
 # Create role that links access set and permission set
