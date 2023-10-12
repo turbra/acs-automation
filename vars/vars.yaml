@@ -34,7 +34,7 @@ permission_sets:
       VulnerabilityManagementRequests: READ_WRITE_ACCESS
 
 access_scopes:
-  - name: product-catalog-admins
+  - name: turbra-catalog-admins
     description: Access rights for users that can manage Product Catalog namespaces
     rules:
       includedClusters: []
@@ -53,7 +53,7 @@ access_scopes:
         namespaceName: product-catalog-gitops
       clusterLabelSelectors: []
       namespaceLabelSelectors: []
-  - name: coolstore-admins
+  - name: turbra-coolstore-admins
     description: Access rights for users that can manage Product Catalog namespaces
     rules:
       includedClusters: []
@@ -70,7 +70,7 @@ access_scopes:
       namespaceLabelSelectors: []
 
 roles:
-  - name: Product Catalog Admins
+  - name: Turbra - Product Catalog Admins
     description: Administrators of product catalog namespaces
     permission_set: Namespace Adminstrator
     access_scope: product-catalog-admins
