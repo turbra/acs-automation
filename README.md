@@ -40,7 +40,7 @@ platform.stackrox.io/Central:
     return hs
 ```
 
-3. Create a kubernetes job to run the playbook, this is recommended to be configured as a post-sync hook. You can see a complete example of the job I use [here](https://github.com/gnunn-gitops/cluster-config/blob/main/components/apps/acs-operator/overlays/oauth/init-acs.yaml).
+3. Create a kubernetes job to run the playbook, this is recommended to be configured as a post-sync hook. You can see a complete example of the job I use [here](https://github.com/gnunn-gitops/cluster-config/blob/main/components/acs-operator/overlays/oauth/init-acs.yaml).
 
 Here is a diagram of how it works with Argo CD.
 
