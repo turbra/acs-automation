@@ -74,9 +74,7 @@
         body_format: json
         body: "{{ item }}"
         status_code: [200, 409, 500]
-      with_items: "{{ permission_sets | default([]) }}"
-      when: permission_sets | default([]) | length > 0
-
+      with_items: "{{ permission_sets }}"
 
     # Create the access scopes
     - name: Create Access Scopes
@@ -89,8 +87,8 @@
         body_format: json
         body: "{{ item }}"
         status_code: [200, 409, 500]
-      with_items: "{{ access_scopes | default([]) }}"
-      when: access_scopes | default([]) | length > 0
+      with_items: "{{ access_scopes }}"
+
     # Need to get the permission sets to get IDs for Roles
     - name: Get Permission Sets
       uri:
@@ -115,11 +113,10 @@
         status_code: 200
       register: access_scope_result
 
-# Create all of the roles
+    # Create all of the roles
     - name: Create Roles
       include_tasks: create_role.yaml
-      with_items: "{{ roles | default([]) }}"
-      when: roles | default([]) | length > 0
+      with_items: "{{ roles }}"
 
     # Now we need to map
     - name: Map role in Provider
